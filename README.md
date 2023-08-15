@@ -7,4 +7,5 @@
 
 ### asciinema
 ***Demonstation of playing game***
-[Even](https://asciinema.org/a/473mNL0ACCJuXHrLHXm9ZSy8r) 
+[Even](https://asciinema.org/a/apPuSarylJCWi4GlgBfTzwdvz
+)
