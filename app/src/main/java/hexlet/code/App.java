@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
 
 import java.util.Scanner;
 
@@ -24,13 +25,13 @@ public class App {
             case "2" :
                 Cli.greeting();
                 System.out.println(Even.gameTask());
-                Engine.gameProcess();
+                Engine.gameProcess(userChoice);
                 break;
             case "3" :
                 Cli.greeting();
-                //System.out.println(Calc.gameTask());
-                //Calc.gameCode();
-
+                System.out.println(Calc.gameTask());
+                Engine.gameProcess(userChoice);
+            default:
         }
         s.close();
     }
