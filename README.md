@@ -5,7 +5,10 @@
 [![Actions Status](https://github.com/ungrome/java-project-61/workflows/hexlet-check/badge.svg)](https://github.com/ungrome/java-project-61/actions)
 
 
-### asciinema
 ***Demonstation of playing game***
+
 [Even](https://asciinema.org/a/apPuSarylJCWi4GlgBfTzwdvz
+)
+
+[Calc](https://asciinema.org/a/GfSgvTqe9qc8QjYu9S2qJqkuA
 )
