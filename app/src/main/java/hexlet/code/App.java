@@ -10,7 +10,8 @@ public class App {
         System.out.println("Please enter the game number and press Enter.\n"
                 + "0 - Exit\n"
                 + "1 - Greet\n"
-                + "2 - Even\n");
+                + "2 - Even\n"
+                + "3 - Calc\n");
         System.out.print("Your choice: ");
         String userChoice = s.next();
 
@@ -21,8 +22,15 @@ public class App {
                 Cli.greeting();
                 break;
             case "2" :
-                String name = Cli.greeting();
-                Even.start(name);
+                Cli.greeting();
+                System.out.println(Even.gameTask());
+                Engine.gameProcess();
+                break;
+            case "3" :
+                Cli.greeting();
+                //System.out.println(Calc.gameTask());
+                //Calc.gameCode();
+
         }
         s.close();
     }
