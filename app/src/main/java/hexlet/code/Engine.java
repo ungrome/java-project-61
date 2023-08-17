@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 public class Engine {
     static final int COUNT_CORRECT_ANSWER_TO_WIN = 3;
@@ -23,6 +24,9 @@ public class Engine {
                     break;
                 case "3":
                     correctAnswer = Calc.gameCode();
+                    break;
+                case "4" :
+                    correctAnswer = GCD.gameCode();
                     break;
                 default:
             }
