@@ -31,6 +31,12 @@ public class App {
                 Cli.greeting();
                 System.out.println(Calc.gameTask());
                 Engine.gameProcess(userChoice);
+                break;
+            case "4" :
+                Cli.greeting();
+                System.out.println(GCD.gameTask());
+                Engine.gameProcess(userChoice);
+                break;
             default:
         }
         s.close();
