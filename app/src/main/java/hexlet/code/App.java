@@ -4,6 +4,7 @@ import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
@@ -16,7 +17,8 @@ public class App {
                 + "2 - Even\n"
                 + "3 - Calc\n"
                 + "4 - GCD\n"
-                + "5 - Progression\n");
+                + "5 - Progression\n"
+                + "6 - Prime\n");
         System.out.print("Your choice: ");
         String userChoice = s.next();
 
@@ -44,6 +46,11 @@ public class App {
             case "5" :
                 Cli.greeting();
                 System.out.println(Progression.gameTask());
+                Engine.gameProcess(userChoice);
+                break;
+            case "6" :
+                Cli.greeting();
+                System.out.println(Prime.gameTask());
                 Engine.gameProcess(userChoice);
                 break;
             default:

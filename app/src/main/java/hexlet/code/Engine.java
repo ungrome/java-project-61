@@ -5,6 +5,7 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class Engine {
     static final int COUNT_CORRECT_ANSWER_TO_WIN = 3;
@@ -31,6 +32,9 @@ public class Engine {
                     break;
                 case "5" :
                     correctAnswer = Progression.gameCode();
+                    break;
+                case "6" :
+                    correctAnswer = Prime.gameCode();
                     break;
                 default:
             }
