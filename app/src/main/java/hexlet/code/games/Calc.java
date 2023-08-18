@@ -1,10 +1,12 @@
 package hexlet.code.games;
 
 public class Calc {
+    static final int MAX_RANDOM_VALUE = 10;
+    static final int COUNT_OF_OPERATIONS = 10;
     public static String gameCode() {
         int result;
-        int number1 = (int) (Math.random() * 10);
-        int number2 = (int) (Math.random() * 10);
+        int number1 = (int) (Math.random() * MAX_RANDOM_VALUE);
+        int number2 = (int) (Math.random() * MAX_RANDOM_VALUE);
         System.out.print("Question: ");
         result = operation(number1, number2);
         return String.valueOf(result);
@@ -12,7 +14,7 @@ public class Calc {
 
     public static int operation(int num1, int num2) {
         String[] operators = {"+", "-", "*" };
-        int i = (int) (Math.random() * 3);
+        int i = (int) (Math.random() * COUNT_OF_OPERATIONS);
         String operator = operators[i];
         switch (operator) {
             case "+" :

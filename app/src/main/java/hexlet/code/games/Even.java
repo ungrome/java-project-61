@@ -1,8 +1,9 @@
 package hexlet.code.games;
 
 public class Even {
+    static final int MAX_RANDOM_VALUE = 100;
     public static String gameCode() {
-        int number = (int) (Math.random() * 100);
+        int number = (int) (Math.random() * MAX_RANDOM_VALUE);
         System.out.print("Question: ");
         System.out.println(number);
         String correctAnswer;
