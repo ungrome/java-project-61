@@ -6,7 +6,7 @@ public class GCD {
         int result;
         int number1 = (int) (Math.random() * DIGIT_BOUNDARY + 1);
         int number2 = (int) (Math.random() * DIGIT_BOUNDARY + 1);
-        System.out.println("Question: " + number1 + " & " + number2);
+        System.out.println("Question: " + number1 + " " + number2);
         result = findingGCD(number1, number2);
         return String.valueOf(result);
     }
