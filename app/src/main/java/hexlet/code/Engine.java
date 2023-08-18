@@ -4,6 +4,7 @@ import java.util.Scanner;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 public class Engine {
     static final int COUNT_CORRECT_ANSWER_TO_WIN = 3;
@@ -27,6 +28,9 @@ public class Engine {
                     break;
                 case "4" :
                     correctAnswer = GCD.gameCode();
+                    break;
+                case "5" :
+                    correctAnswer = Progression.gameCode();
                     break;
                 default:
             }

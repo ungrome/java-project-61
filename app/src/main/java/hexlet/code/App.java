@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -14,7 +15,8 @@ public class App {
                 + "1 - Greet\n"
                 + "2 - Even\n"
                 + "3 - Calc\n"
-                + "4 - GCD\n");
+                + "4 - GCD\n"
+                + "5 - Progression\n");
         System.out.print("Your choice: ");
         String userChoice = s.next();
 
@@ -37,6 +39,11 @@ public class App {
             case "4" :
                 Cli.greeting();
                 System.out.println(GCD.gameTask());
+                Engine.gameProcess(userChoice);
+                break;
+            case "5" :
+                Cli.greeting();
+                System.out.println(Progression.gameTask());
                 Engine.gameProcess(userChoice);
                 break;
             default:
