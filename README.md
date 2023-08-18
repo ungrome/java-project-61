@@ -18,3 +18,6 @@
 
 [Progression](https://asciinema.org/a/BSuJyG6ujSweA8BDm7rFI2iVl
 )
+
+[Prime](https://asciinema.org/a/zvgwiRQOlwLyvH9iSYc82v3CO
+)
