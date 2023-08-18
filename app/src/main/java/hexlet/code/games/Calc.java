@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 public class Calc {
     static final int MAX_RANDOM_VALUE = 10;
-    static final int COUNT_OF_OPERATIONS = 10;
+    static final int COUNT_OF_OPERATIONS = 3;
     public static String gameCode() {
         int result;
         int number1 = (int) (Math.random() * MAX_RANDOM_VALUE);
@@ -18,13 +18,13 @@ public class Calc {
         String operator = operators[i];
         switch (operator) {
             case "+" :
-                System.out.println(num1 + " + " + num2);
+                System.out.println(num1 + " " + operator + " " + num2);
                 return (num1 + num2);
             case "-" :
-                System.out.println(num1 + " - " + num2);
+                System.out.println(num1 + " " + operator + " " + num2);
                 return (num1 - num2);
             case "*" :
-                System.out.println(num1 + " * " + num2);
+                System.out.println(num1 + " " + operator + " " + num2);
                 return (num1 * num2);
             default:
         }
