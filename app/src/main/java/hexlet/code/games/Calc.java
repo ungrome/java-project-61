@@ -1,12 +1,13 @@
 package hexlet.code.games;
 
 public class Calc {
-    static final int MAX_RANDOM_VALUE = 10;
+    static final int MIN_VALUE = 1;
+    static final int MAX_VALUE = 20;
     static final int COUNT_OF_OPERATIONS = 3;
     public static String gameCode() {
         int result;
-        int number1 = (int) (Math.random() * MAX_RANDOM_VALUE);
-        int number2 = (int) (Math.random() * MAX_RANDOM_VALUE);
+        int number1 = Utils.getRandomInt(MIN_VALUE, MAX_VALUE);
+        int number2 = Utils.getRandomInt(MIN_VALUE, MAX_VALUE);
         System.out.print("Question: ");
         result = operation(number1, number2);
         return String.valueOf(result);
