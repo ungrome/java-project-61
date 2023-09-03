@@ -3,7 +3,7 @@ package hexlet.code.games;
 public class Calc {
     static final int MIN_VALUE = 1;
     static final int MAX_VALUE = 20;
-    static final int COUNT_OF_OPERATIONS = 3;
+    static final String[] operators = new String[]{"+", "-", "*" };
     public static String gameCode() {
         int result;
         int number1 = Utils.getRandomInt(MIN_VALUE, MAX_VALUE);
@@ -14,9 +14,7 @@ public class Calc {
     }
 
     public static int operation(int num1, int num2) {
-        String[] operators = {"+", "-", "*" };
-        int i = (int) (Math.random() * COUNT_OF_OPERATIONS);
-        String operator = operators[i];
+        String operator = operators[Utils.getRandomInt(0, operators.length - 1)];
         switch (operator) {
             case "+" :
                 System.out.println(num1 + " " + operator + " " + num2);
@@ -28,8 +26,8 @@ public class Calc {
                 System.out.println(num1 + " " + operator + " " + num2);
                 return (num1 * num2);
             default:
+                throw new IllegalArgumentException("operator choosing error");
         }
-        return 0;
     }
 
     public static String gameTask() {
