@@ -3,7 +3,7 @@ package hexlet.code.games;
 public class Calc {
     static final int MIN_VALUE = 1;
     static final int MAX_VALUE = 20;
-    static final String[] operators = new String[]{"+", "-", "*" };
+    static final String[] OPERATORS = new String[]{"+", "-", "*" };
     public static String gameCode() {
         int result;
         int number1 = Utils.getRandomInt(MIN_VALUE, MAX_VALUE);
@@ -14,7 +14,7 @@ public class Calc {
     }
 
     public static int operation(int num1, int num2) {
-        String operator = operators[Utils.getRandomInt(0, operators.length - 1)];
+        String operator = OPERATORS[Utils.getRandomInt(0, OPERATORS.length - 1)];
         switch (operator) {
             case "+" :
                 System.out.println(num1 + " " + operator + " " + num2);
