@@ -1,6 +1,8 @@
 package hexlet.code.games;
 
-import java.util.Random;
+import hexlet.code.Engine;
+
+import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
 
 public class Progression {
     static final int COUNT_OF_MEMBERS = 10;
@@ -8,9 +10,10 @@ public class Progression {
     static final int MAX_INCREASE_VALUE = 6;
     static final int MAX_FIRST_MEMBER = 20;
     static final int MIN_FIRST_MEMBER = 1;
+    static final String GAME_TASK = "What number is missing in the progression?";
 
-    public static String gameCode() {
-        Random random = new Random();
+    public static String[] generateRoundData() {
+        String[] progressionAndRightAnswer = new String[2];
         int increase = Utils.getRandomInt(MIN_INCREASE_VALUE, MAX_INCREASE_VALUE);
         int[] members = new int[COUNT_OF_MEMBERS];
         int firstMember = Utils.getRandomInt(MIN_FIRST_MEMBER, MAX_FIRST_MEMBER);
@@ -20,21 +23,27 @@ public class Progression {
             members[i + 1] = members[i] + increase;
         }
         //modify array with hidden number
-        int hiddenMemberIndex = random.nextInt(COUNT_OF_MEMBERS);
+        int hiddenMemberIndex = Utils.getRandomInt(0, COUNT_OF_MEMBERS - 1);
         int hiddenMember = members[hiddenMemberIndex];
-        System.out.print("Question:");
+        StringBuilder progressionLine = new StringBuilder();
         for (var i = 0; i < COUNT_OF_MEMBERS; i++) {
             if (i == hiddenMemberIndex) {
-                System.out.print(" " + "..");
+                progressionLine.append(" ").append("..");
             } else {
-                System.out.print(" " + members[i]);
+                progressionLine.append(" ").append(members[i]);
             }
         }
-        System.out.println("");
-        return String.valueOf(hiddenMember);
+        String result = String.valueOf(hiddenMember);
+        progressionAndRightAnswer[0] = progressionLine.toString();
+        progressionAndRightAnswer[1] = result;
+        return progressionAndRightAnswer;
     }
-
-    public static String gameTask() {
-        return "What number is missing in the progression?";
+    public static void runGame() {
+        String[][] roundsData = new String[NUMBER_OF_ROUNDS][2];
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
+            roundsData[i] = generateRoundData();
+        }
+        Engine.gameProcess(roundsData, GAME_TASK);
     }
 }
+

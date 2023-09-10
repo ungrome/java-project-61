@@ -1,14 +1,18 @@
 package hexlet.code;
 
-import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
-
+import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
+    public static final int EVEN_GAME = 2;
+    public static final int CALC_GAME = 3;
+    public static final int GCD_GAME = 4;
+    public static final int PROGRESSION_GAME = 5;
+    public static final int PRIME_GAME = 6;
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.\n"
@@ -20,38 +24,33 @@ public class App {
                 + "5 - Progression\n"
                 + "6 - Prime\n");
         System.out.print("Your choice: ");
-        String userChoice = s.next();
+        int userChoice = s.nextInt();
 
         switch (userChoice) {
-            case "0" :
+            case 0 :
                 break;
-            case "1" :
+            case 1 :
                 Cli.greeting();
                 break;
-            case "2" :
+            case EVEN_GAME :
                 Cli.greeting();
-                System.out.println(Even.gameTask());
-                Engine.gameProcess(userChoice);
+                Even.runGame();
                 break;
-            case "3" :
+            case CALC_GAME :
                 Cli.greeting();
-                System.out.println(Calc.gameTask());
-                Engine.gameProcess(userChoice);
+                Calc.runGame();
                 break;
-            case "4" :
+            case GCD_GAME :
                 Cli.greeting();
-                System.out.println(GCD.gameTask());
-                Engine.gameProcess(userChoice);
+                GCD.runGame();
                 break;
-            case "5" :
+            case PROGRESSION_GAME :
                 Cli.greeting();
-                System.out.println(Progression.gameTask());
-                Engine.gameProcess(userChoice);
+                Progression.runGame();
                 break;
-            case "6" :
+            case PRIME_GAME :
                 Cli.greeting();
-                System.out.println(Prime.gameTask());
-                Engine.gameProcess(userChoice);
+                Prime.runGame();
                 break;
             default:
         }

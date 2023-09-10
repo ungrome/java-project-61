@@ -1,15 +1,24 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
+import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
+
 public class Prime {
     static final int MIN_VALUE = 0;
     static final int MAX_VALUE = 100;
-    public static String gameCode() {
+    static final String GAME_TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+    public static String[] generateRoundData() {
+        String[] numberAndRightAnswer = new String[2];
         int number = Utils.getRandomInt(MIN_VALUE, MAX_VALUE);
-        System.out.println("Question: " + number);
         String correctAnswer;
         correctAnswer = isPrime(number) ? "yes" : "no";
-        return correctAnswer;
+        numberAndRightAnswer[0] = String.format("%d", number);
+        numberAndRightAnswer[1] = correctAnswer;
+        return numberAndRightAnswer;
     }
+
     public static boolean isPrime(int number) {
         int i;
         if (number == 0 || number == 1) {
@@ -22,7 +31,12 @@ public class Prime {
         }
         return true;
     }
-    public static String gameTask() {
-        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+
+    public static void runGame() {
+        String[][] roundsData = new String[NUMBER_OF_ROUNDS][2];
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
+            roundsData[i] = generateRoundData();
+        }
+        Engine.gameProcess(roundsData, GAME_TASK);
     }
 }

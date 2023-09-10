@@ -1,73 +1,23 @@
 package hexlet.code;
-
 import java.util.Scanner;
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
-
 public class Engine {
-    static final int COUNT_CORRECT_ANSWER_TO_WIN = 3;
-    static final int NUMBER_OF_ROUNDS = 3;
+    public static final int NUMBER_OF_ROUNDS = 3;
 
-    public static void gameProcess(String userChoice) {
+    public static void gameProcess(String[][] roundsData, String task) {
         Scanner s = new Scanner(System.in);
-        boolean result = true;
-        int countOfCorrectAnswer = 0;
-        String correctAnswer = "";
-        String lastAnswer = "";
-        String lastCorrectAnswer = "";
-        String usersAnswer;
-        while ((countOfCorrectAnswer < NUMBER_OF_ROUNDS) && result) {
-            switch (userChoice) {
-                case "2":
-                    correctAnswer = Even.gameCode();
-                    break;
-                case "3":
-                    correctAnswer = Calc.gameCode();
-                    break;
-                case "4" :
-                    correctAnswer = GCD.gameCode();
-                    break;
-                case "5" :
-                    correctAnswer = Progression.gameCode();
-                    break;
-                case "6" :
-                    correctAnswer = Prime.gameCode();
-                    break;
-                default:
-            }
-            usersAnswer = s.next();
-
-            result = checkAnswer(correctAnswer, usersAnswer);
-            if (!result) {
-                lastAnswer = usersAnswer;
-                lastCorrectAnswer = correctAnswer;
-                break;
+        System.out.println(task);
+        for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
+            System.out.print("Question: " + roundsData[i][0] + "\nYour answer: ");
+            String usersAnswer = s.next();
+            if (usersAnswer.equals(roundsData[i][1])) {
+                System.out.println("Correct!");
             } else {
-                countOfCorrectAnswer++;
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
+                        usersAnswer, roundsData[i][1], Cli.getUserName());
+                return;
             }
         }
-        resultAnnouncement(Cli.getUserName(), countOfCorrectAnswer, lastCorrectAnswer, lastAnswer);
-    }
-
-    public static boolean checkAnswer(String correctAnswer, String usersAnswer) {
-        if (correctAnswer.equals(usersAnswer)) {
-            System.out.println("Correct!");
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public static void resultAnnouncement(String userName, int countOfCorrectAnswer,
-                                          String correctAnswer, String usersAnswer) {
-        if (countOfCorrectAnswer == COUNT_CORRECT_ANSWER_TO_WIN) {
-            System.out.println("Congratulations, " + userName + "!");
-        } else {
-            System.out.println("'" + usersAnswer + "'" + " is wrong answer ;(."
-                    + "Correct answer was '" + correctAnswer + "'.\n"
-                    + "Let's try again, " + userName + "!");
-        }
+        System.out.println("Congratulations, " + Cli.getUserName() + "!");
     }
 }
+
