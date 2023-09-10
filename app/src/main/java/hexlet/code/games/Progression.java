@@ -28,13 +28,13 @@ public class Progression {
         StringBuilder progressionLine = new StringBuilder();
         for (var i = 0; i < COUNT_OF_MEMBERS; i++) {
             if (i == hiddenMemberIndex) {
-                progressionLine.append(" ").append("..");
+                progressionLine.append(".. ");
             } else {
-                progressionLine.append(" ").append(members[i]);
+                progressionLine.append(members[i]).append(" ");
             }
         }
         String result = String.valueOf(hiddenMember);
-        progressionAndRightAnswer[0] = progressionLine.toString();
+        progressionAndRightAnswer[0] = progressionLine.toString().trim();
         progressionAndRightAnswer[1] = result;
         return progressionAndRightAnswer;
     }
