@@ -9,13 +9,12 @@ public class Engine {
         for (int i = 0; i < NUMBER_OF_ROUNDS; i++) {
             System.out.print("Question: " + roundsData[i][0] + "\nYour answer: ");
             String usersAnswer = s.next();
-            if (usersAnswer.equals(roundsData[i][1])) {
-                System.out.println("Correct!");
-            } else {
-                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'.\nLet's try again, %s!",
-                        usersAnswer, roundsData[i][1], Cli.getUserName());
+            if (!usersAnswer.equals(roundsData[i][1])) {
+                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'."
+                        + "\nLet's try again, %s!", usersAnswer, roundsData[i][1], Cli.getUserName());
                 return;
             }
+            System.out.println("Correct!");
         }
         System.out.println("Congratulations, " + Cli.getUserName() + "!");
     }

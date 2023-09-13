@@ -1,6 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
+
+import java.util.Arrays;
 
 import static hexlet.code.Engine.NUMBER_OF_ROUNDS;
 
@@ -14,28 +17,16 @@ public class Progression {
 
     public static String[] generateRoundData() {
         String[] progressionAndRightAnswer = new String[2];
-        int increase = Utils.getRandomInt(MIN_INCREASE_VALUE, MAX_INCREASE_VALUE);
-        int[] members = new int[COUNT_OF_MEMBERS];
-        int firstMember = Utils.getRandomInt(MIN_FIRST_MEMBER, MAX_FIRST_MEMBER);
-        // creating Array with progression members
-        members[0] = firstMember;
-        for (var i = 0; i < COUNT_OF_MEMBERS - 1; i++) {
-            members[i + 1] = members[i] + increase;
-        }
-        //modify array with hidden number
+        String[] progression = createProgression();
         int hiddenMemberIndex = Utils.getRandomInt(0, COUNT_OF_MEMBERS - 1);
-        int hiddenMember = members[hiddenMemberIndex];
-        StringBuilder progressionLine = new StringBuilder();
+        String hiddenMember = progression[hiddenMemberIndex];
         for (var i = 0; i < COUNT_OF_MEMBERS; i++) {
             if (i == hiddenMemberIndex) {
-                progressionLine.append(".. ");
-            } else {
-                progressionLine.append(members[i]).append(" ");
+                progression[i] = "..";
             }
         }
-        String result = String.valueOf(hiddenMember);
-        progressionAndRightAnswer[0] = progressionLine.toString().trim();
-        progressionAndRightAnswer[1] = result;
+        progressionAndRightAnswer[0] = String.join(" ", progression);
+        progressionAndRightAnswer[1] = hiddenMember;
         return progressionAndRightAnswer;
     }
     public static void runGame() {
@@ -44,6 +35,19 @@ public class Progression {
             roundsData[i] = generateRoundData();
         }
         Engine.gameProcess(roundsData, GAME_TASK);
+    }
+
+    public static String[] createProgression() {
+        int[] members = new int[COUNT_OF_MEMBERS];
+        int increase = Utils.getRandomInt(MIN_INCREASE_VALUE, MAX_INCREASE_VALUE);
+        int firstMember = Utils.getRandomInt(MIN_FIRST_MEMBER, MAX_FIRST_MEMBER);
+        members[0] = firstMember;
+        for (var i = 0; i < COUNT_OF_MEMBERS - 1; i++) {
+            members[i + 1] = members[i] + increase;
+        }
+        return Arrays.stream(members)
+                .mapToObj(String::valueOf)
+                .toArray(String[]::new);
     }
 }
 
